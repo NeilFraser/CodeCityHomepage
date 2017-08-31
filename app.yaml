@@ -21,3 +21,12 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
   secure: always
+
+# go get redirect
+# (See: https://jve.linuxwall.info/blog/index.php?post/2015/08/26/Hosting_Go_code_on_Github_with_custom_import_path)
+- url: /cc.*
+  http_headers:
+   content-type: text/html
+  static_files: cc
+  upload: cc
+  secure: always
