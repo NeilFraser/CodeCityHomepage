@@ -1,0 +1,23 @@
+application: code-city-homepage
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: false
+
+handlers:
+# Static files.
+- url: /static
+  static_dir: static
+  secure: always
+
+# Index.
+- url: /
+  static_files: index.html
+  upload: index\.html
+  secure: always
+
+# Favicon.
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+  secure: always
