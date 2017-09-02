@@ -30,3 +30,8 @@ handlers:
   static_files: cc
   upload: cc
   secure: always
+
+# Things from this directory we don't want to upload:
+skip_files:
+- ^app.yaml.orig$
+- ^deploy$
