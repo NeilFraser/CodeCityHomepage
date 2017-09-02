@@ -3,7 +3,7 @@
 # Script to deploy on GAE, for those not using GoogleAppEngineLauncher
 
 APP=./app.yaml
-if ! [ -f ./app.yaml ] ; then
+if ! [ -f $APP ] ; then
    echo $APP not found 1>&2
    exit 1
 fi
@@ -14,6 +14,8 @@ VERSION=`egrep '^version:' $APP | cut -f2 -d' '`
 mv $APP $APP.orig
 egrep -v '^(application:|version:)' $APP.orig > $APP
 
+echo 'Beginning deployment...'
 gcloud app deploy --project $PROJECT --version $VERSION
+echo 'Deployment finished.'
 
 mv $APP.orig $APP
