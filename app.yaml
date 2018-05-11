@@ -9,18 +9,21 @@ handlers:
 - url: /static
   static_dir: static
   secure: always
+  redirect_http_response_code: 301
 
 # Index.
 - url: /
   static_files: index.html
   upload: index\.html
   secure: always
+  redirect_http_response_code: 301
 
 # Favicon.
 - url: /favicon\.ico
   static_files: favicon.ico
   upload: favicon\.ico
   secure: always
+  redirect_http_response_code: 301
 
 # go get redirect
 # (See: https://jve.linuxwall.info/blog/index.php?post/2015/08/26/Hosting_Go_code_on_Github_with_custom_import_path)
@@ -30,6 +33,7 @@ handlers:
   static_files: cc
   upload: cc
   secure: always
+  redirect_http_response_code: 301
 
 # Things from this directory we don't want to upload:
 skip_files:
