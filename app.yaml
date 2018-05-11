@@ -39,3 +39,5 @@ handlers:
 skip_files:
 - ^app.yaml.orig$
 - ^deploy$
+- ^.git/
+- ^.gitignore$
