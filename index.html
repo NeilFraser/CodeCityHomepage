@@ -8,11 +8,17 @@
 body {
   font-family: sans-serif;
   font-size: larger;
+  margin-bottom: 100px;
 }
 li {
   margin-top: 1ex;
 }
-    </style>
+#footer {
+  bottom:0;
+  position: fixed;
+  width: 100%;
+}
+</style>
 </head>
 <body>
     <h1>Code City</h1>
@@ -20,6 +26,6 @@ li {
     <ul>
         <li><a href="https://google.codecity.world">Google Code City</a></li>
     </ul>
-    <img src="static/skyline.png" style="width: 100%">
+    <img id="footer" src="static/skyline.png">
 </body>
 </html>
