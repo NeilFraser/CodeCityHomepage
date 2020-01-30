@@ -8,14 +8,9 @@ if ! [ -f $APP ] ; then
    exit 1
 fi
 
-PROJECT=`egrep '^application:' $APP | cut -f2 -d' '`
-VERSION=`egrep '^version:' $APP | cut -f2 -d' '`
-
-mv $APP $APP.orig
-egrep -v '^(application:|version:)' $APP.orig > $APP
+PROJECT=code-city
+VERSION=1
 
 echo 'Beginning deployment...'
 gcloud app deploy --project $PROJECT --version $VERSION
 echo 'Deployment finished.'
-
-mv $APP.orig $APP
