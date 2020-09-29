@@ -17,9 +17,15 @@
 const http = require('http');
 
 const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello, world!');
+  if (req.url === '/proxy') {
+    http.get('http://www.example.com/', (outRes) => {
+      outRes.on('data', (chunk) => {res.write(chunk);});
+      outRes.on('close', () => {res.end();});
+    });
+  } else {
+    res.statusCode = 404;
+    res.end('404: Not Found');
+  }
 });
 
 // Start the server
