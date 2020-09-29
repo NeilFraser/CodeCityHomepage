@@ -14,21 +14,16 @@
 
 'use strict';
 
-// [START gae_node_request_example]
-const express = require('express');
+const http = require('http');
 
-const app = express();
-
-app.get('/proxy', (req, res) => {
-  res.status(200).send('Hello, world!').end();
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello, world!');
 });
 
 // Start the server
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`);
-  console.log('Press Ctrl+C to quit.');
+server.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
-// [END gae_node_request_example]
-
-module.exports = app;
