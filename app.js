@@ -15,10 +15,13 @@
 'use strict';
 
 const http = require('http');
+const https = require('https');
 
 const server = http.createServer((req, res) => {
   if (req.url === '/proxy') {
-    http.get('http://www.example.com/', (outRes) => {
+    https.get('https://10.128.0.7/', {
+      headers: {host: 'test.codecity.world'},
+    }, (outRes) => {
       outRes.on('data', (chunk) => {res.write(chunk);});
       outRes.on('close', () => {res.end();});
     });
