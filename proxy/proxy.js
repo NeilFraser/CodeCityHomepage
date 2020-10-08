@@ -15,20 +15,14 @@
 'use strict';
 
 const http = require('http');
-const https = require('https');
+const httpProxy = require('http-proxy');
+
+const proxy = httpProxy.createProxyServer();
 
 const server = http.createServer((req, res) => {
-  if (req.url === '/proxy') {
-    https.get('https://10.128.0.7/', {
-      headers: {host: 'test.codecity.world'},
-    }, (outRes) => {
-      outRes.on('data', (chunk) => {res.write(chunk);});
-      outRes.on('close', () => {res.end();});
-    });
-  } else {
-    res.statusCode = 404;
-    res.end('404: Not Found');
-  }
+  proxy.web(req, res, {
+    target: 'https://test.us-central1-a.c.code-city.internal'
+  });
 });
 
 // Start the server

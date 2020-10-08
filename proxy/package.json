@@ -7,12 +7,15 @@
   "author": "Christopher Allen <cpcallen@google.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GoogleCloudPlatform/nodejs-docs-samples.git"
+    "url": "https://github.com/NeilFraser/CodeCityHomepage.git"
   },
   "engines": {
     "node": ">=12.0.0"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node proxy.js"
+  },
+  "dependencies": {
+    "http-proxy": "^1.18.1"
   }
 }
