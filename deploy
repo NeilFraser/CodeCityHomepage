@@ -1,16 +1,15 @@
 #!/bin/bash
 
-# Script to deploy on GAE, for those not using GoogleAppEngineLauncher
+# Script to deploy homepage and proxy on Google App Engine.
 
-APP=./app.yaml
-if ! [ -f $APP ] ; then
-   echo $APP not found 1>&2
-   exit 1
-fi
+# Go to the top level directory of the CodeCityHomepage git
+# repository.  It's the directory containing this script.
+cd "$(dirname "${BASH_SOURCE[0]}")"
 
 PROJECT=code-city
-VERSION=1
+VERSION=2
 
 echo 'Beginning deployment...'
-gcloud app deploy --project $PROJECT --version $VERSION
+gcloud app deploy --project $PROJECT --version $VERSION --quiet \
+       app.yaml proxy/proxy-service.yaml dispatch.yaml
 echo 'Deployment finished.'
