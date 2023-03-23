@@ -1,4 +1,0 @@
-dispatch:
-  # Send all traffic for test.codecity.world to the reverse proxy.
-  - url: "test.codecity.world/*"
-    service: proxy

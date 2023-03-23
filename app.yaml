@@ -1,5 +1,5 @@
 service: default
-runtime: nodejs12
+runtime: nodejs18
 
 handlers:
 # Static files.
