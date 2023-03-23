@@ -17,7 +17,6 @@
 node_modules/
 
 # Dev tool files:
-*.komodoproject
 *~
 
 # Scripts and other stuff that doesn't need to be uploaded:
